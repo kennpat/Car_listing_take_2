@@ -25,4 +25,17 @@ feature 'User adds a new vehicle to the inventory', %{
     expect(page).to have_content manufacturer1.name
 
   end
+
+  scenario 'user clicks submit with not data entered' do
+    manufacturer1 = FactoryGirl.create(:manufacturer)
+    visit new_vehicle_path
+
+    vehicle = FactoryGirl.build(:vehicle)
+    click_on 'Submit'
+
+    expect(page).to have_content("Color can't be blank")
+    expect(page).to have_content("Year can't be blank")
+    expect(page).to have_content("Mileage can't be blank")
+    expect(page).to have_content("Manufacturer can't be blank")
+  end
 end

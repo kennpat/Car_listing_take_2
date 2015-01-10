@@ -10,8 +10,11 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.save
-    redirect_to vehicles_path, notice: 'Vehicle added successfully'
+    if @vehicle.save
+      redirect_to vehicles_path, notice: 'Vehicle added successfully'
+    else
+      render :new
+    end
 
   end
 
