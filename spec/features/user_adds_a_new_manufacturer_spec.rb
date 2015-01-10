@@ -37,4 +37,14 @@ feature 'user adds a new manufacturer to the database', %{
       Manufacturer Name Country of Manufacture')
   end
 
+  scenario 'user tries to post a manufacturer duplicating name but not country' do
+    manufacturer = FactoryGirl.create(:manufacturer)
+    visit new_manufacturer_path
+    fill_in 'Manufacturer Name', with: manufacturer.name
+    fill_in 'Country of Manufacture', with: 'Italy'
+    click_on 'Submit'
+
+    expect(page).to have_content('Manufacturer posted successfully')
+  end
+
 end
