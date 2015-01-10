@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'homes#index'
 
-  resources :manufacturers
-  resources :vehicles
+  resources :manufacturers, only: [:index, :create, :new]
+  resources :vehicles, only: [:index, :create, :new]
 
 end
