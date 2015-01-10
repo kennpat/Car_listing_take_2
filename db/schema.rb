@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110164152) do
+ActiveRecord::Schema.define(version: 20150110193105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,5 +24,15 @@ ActiveRecord::Schema.define(version: 20150110164152) do
   end
 
   add_index "manufacturers", ["name", "country"], name: "index_manufacturers_on_name_and_country", unique: true, using: :btree
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "color",           null: false
+    t.integer  "year",            null: false
+    t.integer  "mileage",         null: false
+    t.integer  "manufacturer_id", null: false
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

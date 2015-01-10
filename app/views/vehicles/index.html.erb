@@ -1,0 +1,5 @@
+<% @vehicles.each do |vehicle| %>
+  <li><h3>Year:<%= vehicle.year %> - Color:<%= vehicle.color %> </h3>
+  <h3>Mileage: <%= vehicle.mileage %> - Manufacturer: <%= vehicle.manufacturer.name %></h3>
+  <p><%= vehicle.description %></p></li>
+<% end %>

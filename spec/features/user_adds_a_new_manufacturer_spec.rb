@@ -13,6 +13,7 @@ feature 'user adds a new manufacturer to the database', %{
     click_on 'Submit'
 
     expect(page).to have_content('Manufacturer posted successfully')
+    # this is to ensure that the index of vehicles is displaying
     expect(page).to have_content('BMW')
     expect(page).to have_content('Germany')
   end

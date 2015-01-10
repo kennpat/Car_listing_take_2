@@ -1,6 +1,6 @@
 <% if @manufacturer.errors.any? %>
   <% @manufacturer.errors.full_messages.each do |msg| %>
-    <%= msg %>
+    <li><%= msg %></li>
   <% end %>
 <% end %>
 
