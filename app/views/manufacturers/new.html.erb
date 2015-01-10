@@ -4,13 +4,15 @@
   <% end %>
 <% end %>
 
-<%= form_for @manufacturer do |m| %>
-  <%= m.label :name, "Manufacturer Name" %>
-  <%= m.text_field :name %>
+<%= form_for @manufacturer do |f| %>
+  <%= f.label :name, "Manufacturer Name" %>
+  <%= f.text_field :name %>
 
-  <%= m.label :country, "Country of Manufacture" %>
-  <%= m.text_field :country %>
+  <%= f.label :country, "Country of Manufacture" %>
+  <%= f.text_field :country %>
 
-  <%= m.submit "Submit" %>
+  <%= f.submit "Submit" %>
 
 <%end%>
+
+<%= link_to "Back", "/manufacturers" %>
